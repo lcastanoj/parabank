@@ -7,6 +7,8 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import com.automation.ui.LoginPage;
 
+import static com.automation.utils.Timeouts.MEDIUM;
+import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class Login implements Task {
@@ -20,7 +22,7 @@ public class Login implements Task {
     }
 
     public static Login withCredentials(String username, String password) {
-        return new Login(username, password);
+        return instrumented(Login.class, username, password);
     }
 
     @Override
@@ -28,7 +30,7 @@ public class Login implements Task {
         actor.attemptsTo(
                 Enter.theValue(username).into(LoginPage.USERNAME),
                 Enter.theValue(password).into(LoginPage.PASSWORD),
-                WaitUntil.the(LoginPage.LOGIN_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(LoginPage.LOGIN_BUTTON, isVisible()).forNoMoreThan(MEDIUM).seconds(),
                 Click.on(LoginPage.LOGIN_BUTTON)
         );
     }

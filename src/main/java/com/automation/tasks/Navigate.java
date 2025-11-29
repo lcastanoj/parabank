@@ -5,6 +5,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;
 
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+
 public class Navigate implements Task {
 
     private final String url;
@@ -14,15 +16,15 @@ public class Navigate implements Task {
     }
 
     public static Navigate toUrl(String url) {
-        return new Navigate(url);
+        return instrumented(Navigate.class, url);
     }
 
     public static Navigate toRegistrationPage() {
-        return new Navigate("https://parabank.parasoft.com/parabank/register.htm");
+        return instrumented(Navigate.class, "https://parabank.parasoft.com/parabank/register.htm");
     }
 
     public static Navigate toLoginPage() {
-        return new Navigate("https://parabank.parasoft.com/parabank/index.htm");
+        return instrumented(Navigate.class, "https://parabank.parasoft.com/parabank/index.htm");
     }
 
     @Step("{0} navigates to the url: #url")

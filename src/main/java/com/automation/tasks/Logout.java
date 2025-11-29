@@ -6,10 +6,12 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import com.automation.ui.HomePage;
 
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+
 public class Logout implements Task {
 
     public static Logout fromApp() {
-        return new Logout();
+        return instrumented(Logout.class);
     }
 
     @Step("{0} logs out of the application")

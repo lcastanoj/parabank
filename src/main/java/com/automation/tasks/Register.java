@@ -7,13 +7,12 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.JavaScriptClick;
-import net.serenitybdd.screenplay.annotations.Subject;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import static com.automation.utils.Timeouts.MEDIUM;
+import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
-@Subject("Register a new user")
 public class Register implements Task {
 
     private final UserData user;
@@ -23,7 +22,7 @@ public class Register implements Task {
     }
 
     public static Register withData(UserData user) {
-        return new Register(user);
+        return instrumented(Register.class, user);
     }
 
     @Step("Registering user with username {0}")
@@ -41,7 +40,7 @@ public class Register implements Task {
                 Enter.theValue(user.getUsername()).into(RegistrationPage.USERNAME),
                 Enter.theValue(user.getPassword()).into(RegistrationPage.PASSWORD),
                 Enter.theValue(user.getPassword()).into(RegistrationPage.CONFIRM_PASSWORD),
-                WaitUntil.the(RegistrationPage.SUBMIT, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(RegistrationPage.SUBMIT, isVisible()).forNoMoreThan(MEDIUM).seconds(),
                 Click.on(RegistrationPage.SUBMIT)
         );
     }

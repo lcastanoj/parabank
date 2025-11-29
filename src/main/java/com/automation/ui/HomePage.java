@@ -8,5 +8,5 @@ public class HomePage {
     public static final Target LOGOUT_BUTTON = Target.the("logout botton")
             .locatedBy("//a[contains(text(), 'Log Out')]");
     public static final Target WELCOME_MESSAGE = Target.the("welcome message login")
-            .locatedBy("//p[@class='smallText'][contains(., 'Welcome') and contains(., 'Lucas Castaño')]");
+            .locatedBy("//p[@class='smallText'][contains(., 'Welcome')]");
 }
