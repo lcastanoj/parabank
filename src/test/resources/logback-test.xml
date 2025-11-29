@@ -1,0 +1,28 @@
+<configuration>
+
+    <!-- Apagar logs ruidosos de Selenium y CDP -->
+    <logger name="org.openqa.selenium" level="WARN"/>
+    <logger name="org.openqa.selenium.devtools" level="WARN"/>
+    <logger name="org.openqa.selenium.chromium" level="WARN"/>
+    <logger name="io.github.bonigarcia.wdm" level="ERROR"/>
+
+    <!-- Apagar logs de fotografía / Darkroom de Serenity -->
+    <logger name="net.serenitybdd.core.photography" level="WARN"/>
+    <logger name="net.serenitybdd.screenplay.targets.IFrameSwitcher" level="WARN"/>
+
+    <!-- Mantener INFO para tus Steps y Tasks -->
+    <logger name="net.serenitybdd.screenplay" level="INFO"/>
+    <logger name="net.serenitybdd.core.steps" level="INFO"/>
+
+    <!-- Root -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+</configuration>
