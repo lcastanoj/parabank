@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/",
         glue = "com/automation/stepDef",
-        tags = "@OpenAccount",
+        tags = "@AccountBalance",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class Runner {

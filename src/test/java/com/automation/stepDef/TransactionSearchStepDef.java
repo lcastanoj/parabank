@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TransactionSearchStepDef {
+
     @Given("the user is on the transactions search page")
     public void theUserIsOnTheTransactionsSearchPage() {
 

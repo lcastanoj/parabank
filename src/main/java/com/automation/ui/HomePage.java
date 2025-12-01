@@ -11,9 +11,17 @@ public class HomePage {
             .locatedBy("//p[@class='smallText'][contains(., 'Welcome')]");
     public static final Target OPEN_ACCOUNT_LINK = Target.the("open account link")
             .locatedBy("//ul/li/a[contains(text(), 'Open New Account')]");
+
     public static final Target ACCOUNT_ROWS = Target.the("account rows")
-                    .locatedBy("//table[@id='accountTable']//tr/td[1]");
+            .locatedBy("//table[@id='accountTable']//tr/td[1]");
     public static final Target ACCOUNTS_OVERVIEW_LINK = Target.the("accounts overview link")
             .locatedBy("//a[text()='Accounts Overview']");
+    public static final Target ACCOUNTS_IDS = Target.the("list of accounts")
+            .locatedBy("//table[@id='accountTable']//tr/td[1]/a");
+    public static final Target ACCOUNT_BALANCE = Target.the("account balance")
+            .locatedBy("//a[text()='{0}']/parent::td/following-sibling::td[1]");
+    public static final Target ACCOUNT_BY_ID = Target.the("account by id")
+            .locatedBy("//table[@id='accountTable']//tbody//tr/td[1]/a[text()='{0}']");
+
 
 }

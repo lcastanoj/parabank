@@ -12,6 +12,7 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class LoginStepDef {
+
     @Given("the user is on the login page")
     public void theUserIsOnTheLoginPage() {
         theActorInTheSpotlight().attemptsTo(

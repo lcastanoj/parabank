@@ -10,5 +10,5 @@ public class OpenAccountPage {
     public static final Target MESSAGE_SUCCESSFUL_LABEL = Target.the("message successful label")
             .locatedBy("//div[@id='openAccountResult']/p[contains(text(), 'Congratulations, your account is now open.')]");
     public static final Target NEW_ACCOUNT_ID = Target.the("new account id")
-                    .locatedBy("//a[contains(@href,'activity.htm?id=')]");
+            .locatedBy("//a[contains(@href,'activity.htm?id=')]");
 }

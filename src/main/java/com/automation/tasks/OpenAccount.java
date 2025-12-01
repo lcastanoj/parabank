@@ -12,6 +12,7 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class OpenAccount implements Task {
+
     private final String typeAccount;
 
     public OpenAccount(String typeAccount) {
@@ -32,6 +33,10 @@ public class OpenAccount implements Task {
 
         String newAccount = OpenAccountPage.NEW_ACCOUNT_ID.resolveFor(actor).getText();
         SessionData.setCreatedAccount(newAccount);
+
+        actor.attemptsTo(
+                Click.on(HomePage.ACCOUNTS_OVERVIEW_LINK)
+        );
     }
 
     public static OpenAccount add(String typeAccount) {

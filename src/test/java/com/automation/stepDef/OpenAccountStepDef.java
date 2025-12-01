@@ -17,6 +17,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.hasItem;
 
 public class OpenAccountStepDef {
+
     @Given("the user is authenticated")
     public void theUserIsAuthenticated() {
         theActorInTheSpotlight().attemptsTo(
@@ -38,10 +39,6 @@ public class OpenAccountStepDef {
     @Then("the new account should be displayed in the accounts overview")
     public void theNewAccountShouldBeDisplayedInTheAccountsOverview() {
         String createdAccount = SessionData.getCreatedAccount();
-
-        theActorInTheSpotlight().attemptsTo(
-                Click.on(HomePage.ACCOUNTS_OVERVIEW_LINK)
-        );
 
         theActorInTheSpotlight().should(
                 seeThat("the account appears on the overall",

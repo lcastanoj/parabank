@@ -16,6 +16,7 @@ import com.automation.utils.DriverFactory;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
 public class Hooks {
+
     @Before(order = 0)
     public void setUp() {
         setTheStage(new OnlineCast());

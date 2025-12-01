@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class InternalTransferStepDef {
+
     @Given("the user has at least two active accounts")
     public void theUserHasAtLeastTwoActiveAccounts() {
 
