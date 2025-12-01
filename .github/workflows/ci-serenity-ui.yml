@@ -35,7 +35,7 @@ jobs:
       #    - Si tu build.gradle está en un submódulo, añade working-directory
       - name: Run UI tests
         run: gradle clean test --no-daemon -Dcucumber.filter.tags="@Regresion"
-
+        
       # 6) Subir reporte Serenity como artifact para trazabilidad
       - name: Upload Serenity report
         if: always()                 # se sube aunque los tests fallen
