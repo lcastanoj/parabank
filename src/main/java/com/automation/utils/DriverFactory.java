@@ -14,7 +14,11 @@ public class DriverFactory {
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-popup-blocking");
         chromeOptions.addArguments("--disable-infobars");
-        chromeOptions.addArguments("--remote-allow-origins=*");
+
+        chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        chromeOptions.setExperimentalOption("useAutomationExtension", false);
+
+        //chromeOptions.addArguments("--remote-allow-origins=*");
 
         return new ChromeDriver(chromeOptions);
     }
