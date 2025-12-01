@@ -3,7 +3,7 @@ package com.automation.stepDef;
 import com.automation.interactions.CaptureAccountIds;
 import com.automation.tasks.MakeTransfer;
 import com.automation.tasks.OpenAccount;
-import com.automation.tasks.OveralBalances;
+import com.automation.tasks.OverallBalances;
 import com.automation.tasks.ValidateBalances;
 import com.automation.ui.AccountActivityPage;
 import com.automation.ui.HomePage;
@@ -17,12 +17,12 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class AccountBalanceStepDef {
 
-    @Given("the user has recent transfer operations {string}")
-    public void theUserHasRecentTransferOperations(String typeAccount) {
+    @Given("the user has recent transfer operations {string} {string}")
+    public void theUserHasRecentTransferOperations(String typeAccount, String amount) {
         theActorInTheSpotlight().attemptsTo(
                 OpenAccount.add(typeAccount),
                 CaptureAccountIds.from(HomePage.ACCOUNTS_IDS),
-                MakeTransfer.of("100")
+                MakeTransfer.of(amount)
         );
     }
 
@@ -36,7 +36,7 @@ public class AccountBalanceStepDef {
     @Then("the balances should reflect the last transfer")
     public void theBalancesShouldReflectTheLastTransfer() {
         theActorInTheSpotlight().attemptsTo(
-                OveralBalances.resume()
+                OverallBalances.resume()
         );
 
         theActorInTheSpotlight().should(

@@ -24,10 +24,7 @@ public class OpenAccount implements Task {
         actor.attemptsTo(
                 Click.on(HomePage.OPEN_ACCOUNT_LINK),
                 SelectFromOptions.byVisibleText(typeAccount).from(OpenAccountPage.TYPE_ACCOUNT_SELECT),
-                Click.on(OpenAccountPage.OPEN_ACCOUNT_BUTTON)
-        );
-
-        actor.attemptsTo(
+                Click.on(OpenAccountPage.OPEN_ACCOUNT_BUTTON),
                 Ensure.that(OpenAccountPage.MESSAGE_SUCCESSFUL_LABEL).isDisplayed()
         );
 

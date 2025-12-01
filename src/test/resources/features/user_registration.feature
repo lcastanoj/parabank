@@ -3,7 +3,7 @@ Feature: User Registration
   I want to create an account in Parabank
   So that I can authenticate and perform banking operations
 
-@Registrer
+@Registrer @Regresion
   Scenario: Successful user registration
     Given the user is on the registration page
     When the user registers with valid data

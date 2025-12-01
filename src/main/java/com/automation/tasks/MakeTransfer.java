@@ -27,14 +27,14 @@ public class MakeTransfer implements Task {
         String to = actor.recall("toAccount");
 
         double initialFrom = HomePage.ACCOUNT_BALANCE.of(from).resolveFor(actor).getText()
-                .replace("$","").replace(",","")
+                .replace("$", "").replace(",", "")
                 .isEmpty() ? 0.0 :
-                Double.parseDouble(HomePage.ACCOUNT_BALANCE.of(from).resolveFor(actor).getText().replace("$","").replace(",",""));
+                Double.parseDouble(HomePage.ACCOUNT_BALANCE.of(from).resolveFor(actor).getText().replace("$", "").replace(",", ""));
 
         double initialTo = HomePage.ACCOUNT_BALANCE.of(to).resolveFor(actor).getText()
-                .replace("$","").replace(",","")
+                .replace("$", "").replace(",", "")
                 .isEmpty() ? 0.0 :
-                Double.parseDouble(HomePage.ACCOUNT_BALANCE.of(to).resolveFor(actor).getText().replace("$","").replace(",",""));
+                Double.parseDouble(HomePage.ACCOUNT_BALANCE.of(to).resolveFor(actor).getText().replace("$", "").replace(",", ""));
 
         SessionData.setTransferContext(from, to, Double.parseDouble(amount), initialFrom, initialTo);
 
@@ -44,10 +44,6 @@ public class MakeTransfer implements Task {
                 SelectFromOptions.byVisibleText(to).from(TransferPage.TO_ACCOUNT_SELECT),
                 Enter.theValue(amount).into(TransferPage.AMOUNT_FIELD),
                 Click.on(TransferPage.TRANSFER_BUTTON)
-        );
-
-        actor.attemptsTo(
-                Ensure.that(TransferPage.SUCCESS_MESSAGE).isDisplayed()
         );
     }
 

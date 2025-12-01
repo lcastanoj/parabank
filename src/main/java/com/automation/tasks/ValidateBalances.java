@@ -24,8 +24,7 @@ public class ValidateBalances implements Task {
         actor.attemptsTo(
                 Click.on(HomePage.ACCOUNTS_OVERVIEW_LINK)
         );
-
-        // Leer saldos actuales
+        
         String fromBalanceStr = HomePage.ACCOUNT_BALANCE.of(from).resolveFor(actor).getText();
         String toBalanceStr   = HomePage.ACCOUNT_BALANCE.of(to).resolveFor(actor).getText();
 
@@ -35,7 +34,6 @@ public class ValidateBalances implements Task {
         double expectedFrom = initialFrom - amount;
         double expectedTo   = initialTo + amount;
 
-        // Validaciones
         actor.attemptsTo(
                 Ensure.that(currentFrom).isEqualTo(expectedFrom),
                 Ensure.that(currentTo).isEqualTo(expectedTo)

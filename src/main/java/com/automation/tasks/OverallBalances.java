@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class OveralBalances implements Task {
+public class OverallBalances implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -19,7 +19,7 @@ public class OveralBalances implements Task {
         );
     }
 
-    public static OveralBalances resume() {
-        return instrumented(OveralBalances.class);
+    public static OverallBalances resume() {
+        return instrumented(OverallBalances.class);
     }
 }
