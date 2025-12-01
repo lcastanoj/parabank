@@ -21,10 +21,6 @@ public class Register implements Task {
         this.user = user;
     }
 
-    public static Register withData(UserData user) {
-        return instrumented(Register.class, user);
-    }
-
     @Step("Registering user with username {0}")
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -43,5 +39,9 @@ public class Register implements Task {
                 WaitUntil.the(RegistrationPage.SUBMIT, isVisible()).forNoMoreThan(MEDIUM).seconds(),
                 Click.on(RegistrationPage.SUBMIT)
         );
+    }
+
+    public static Register withData(UserData user) {
+        return instrumented(Register.class, user);
     }
 }

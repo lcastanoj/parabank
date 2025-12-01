@@ -9,4 +9,11 @@ public class HomePage {
             .locatedBy("//a[contains(text(), 'Log Out')]");
     public static final Target WELCOME_MESSAGE = Target.the("welcome message login")
             .locatedBy("//p[@class='smallText'][contains(., 'Welcome')]");
+    public static final Target OPEN_ACCOUNT_LINK = Target.the("open account link")
+            .locatedBy("//ul/li/a[contains(text(), 'Open New Account')]");
+    public static final Target ACCOUNT_ROWS = Target.the("account rows")
+                    .locatedBy("//table[@id='accountTable']//tr/td[1]");
+    public static final Target ACCOUNTS_OVERVIEW_LINK = Target.the("accounts overview link")
+            .locatedBy("//a[text()='Accounts Overview']");
+
 }

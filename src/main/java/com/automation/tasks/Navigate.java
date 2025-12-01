@@ -11,12 +11,14 @@ public class Navigate implements Task {
 
     private final String url;
 
-    private Navigate(String url) {
+    public Navigate(String url) {
         this.url = url;
     }
 
-    public static Navigate toUrl(String url) {
-        return instrumented(Navigate.class, url);
+    @Step("{0} navigates to the url: #url")
+    @Override
+    public <T extends Actor> void performAs(T actor) {
+        actor.attemptsTo(Open.url(url));
     }
 
     public static Navigate toRegistrationPage() {
@@ -25,11 +27,5 @@ public class Navigate implements Task {
 
     public static Navigate toLoginPage() {
         return instrumented(Navigate.class, "https://parabank.parasoft.com/parabank/index.htm");
-    }
-
-    @Step("{0} navigates to the url: #url")
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Open.url(url));
     }
 }

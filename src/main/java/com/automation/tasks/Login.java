@@ -21,10 +21,6 @@ public class Login implements Task {
         this.password = password;
     }
 
-    public static Login withCredentials(String username, String password) {
-        return instrumented(Login.class, username, password);
-    }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -33,5 +29,9 @@ public class Login implements Task {
                 WaitUntil.the(LoginPage.LOGIN_BUTTON, isVisible()).forNoMoreThan(MEDIUM).seconds(),
                 Click.on(LoginPage.LOGIN_BUTTON)
         );
+    }
+
+    public static Login withCredentials(String username, String password) {
+        return instrumented(Login.class, username, password);
     }
 }

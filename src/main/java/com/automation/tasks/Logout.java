@@ -9,16 +9,15 @@ import com.automation.ui.HomePage;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class Logout implements Task {
-
-    public static Logout fromApp() {
-        return instrumented(Logout.class);
-    }
-
     @Step("{0} logs out of the application")
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(HomePage.LOGOUT_BUTTON)
         );
+    }
+
+    public static Logout fromApp() {
+        return instrumented(Logout.class);
     }
 }
