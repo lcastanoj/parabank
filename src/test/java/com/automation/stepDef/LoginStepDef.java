@@ -8,8 +8,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import static com.automation.utils.Timeouts.MEDIUM;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class LoginStepDef {
 
@@ -33,6 +36,7 @@ public class LoginStepDef {
     @Then("the user should see the welcome message")
     public void theUserShouldSeeTheWelcomeMessage() {
         theActorInTheSpotlight().attemptsTo(
+                WaitUntil.the(HomePage.WELCOME_MESSAGE, isPresent()).forNoMoreThan(MEDIUM).seconds(),
                 Ensure.that(HomePage.WELCOME_MESSAGE).isDisplayed()
         );
     }

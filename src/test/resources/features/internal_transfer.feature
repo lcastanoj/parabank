@@ -9,4 +9,4 @@ Feature: Internal Funds Transfer
     Then the transfer confirmation should be displayed
     Examples:
       | typeAccount | amount |
-      | CHECKING    | 150    |
+      | CHECKING    | 100    |

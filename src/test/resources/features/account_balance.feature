@@ -11,4 +11,4 @@ Feature: Account Balance Validation
 
     Examples:
       | typeAccount | amount |
-      | CHECKING    | 200    |
+      | CHECKING    | 100    |

@@ -23,5 +23,6 @@ public class HomePage {
     public static final Target ACCOUNT_BY_ID = Target.the("account by id")
             .locatedBy("//table[@id='accountTable']//tbody//tr/td[1]/a[text()='{0}']");
 
-
+    public static final Target FIND_TRANSACTIONS_LINK = Target.the("find transactions link")
+            .locatedBy("//a[contains(text(), 'Find Transactions')]");
 }

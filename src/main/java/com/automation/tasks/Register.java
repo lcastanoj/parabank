@@ -21,7 +21,6 @@ public class Register implements Task {
         this.user = user;
     }
 
-    @Step("Registering user with username {0}")
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(

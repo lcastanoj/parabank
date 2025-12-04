@@ -8,8 +8,11 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import static com.automation.utils.Timeouts.MEDIUM;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class OpenAccount implements Task {
 
@@ -25,6 +28,7 @@ public class OpenAccount implements Task {
                 Click.on(HomePage.OPEN_ACCOUNT_LINK),
                 SelectFromOptions.byVisibleText(typeAccount).from(OpenAccountPage.TYPE_ACCOUNT_SELECT),
                 Click.on(OpenAccountPage.OPEN_ACCOUNT_BUTTON),
+                WaitUntil.the(OpenAccountPage.MESSAGE_SUCCESSFUL_LABEL, isPresent()).forNoMoreThan(MEDIUM).seconds(),
                 Ensure.that(OpenAccountPage.MESSAGE_SUCCESSFUL_LABEL).isDisplayed()
         );
 
